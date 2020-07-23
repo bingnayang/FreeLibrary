@@ -17,13 +17,15 @@
 		</a>
 	</nav>
 	<nav class="nav bg-light text-dark">
-		<button type="button" class="btn btn-outline-primary" style="margin: 5px;">Add New Book</button> 
-		<button type="button" class="btn btn-outline-primary" style="margin: 5px;">Search Books by Author</button> 
-		<button type="button" class="btn btn-outline-primary" style="margin: 5px;">Search Books by Publisher</button> 
+		<button type="button" class="btn btn-outline-secondary" style="margin: 5px;" onclick="window.location.href='views/book-add.jsp'">Add New Book</button> 
+		<button type="button" class="btn btn-outline-secondary" style="margin: 5px;">Search Books by Author</button> 
+		<button type="button" class="btn btn-outline-secondary" style="margin: 5px;">Search Books by Publisher</button> 
+		<button type="button" class="btn btn-outline-secondary" style="margin: 5px;">Search Books by Genre</button> 
+		
 	</nav>
-	<div class="container-fluid" style="margin-top: 2em;">
+	<div class="container-fluid table-responsive" style="margin-top: 2em;">
 		<table class="table">
-			<thead>
+			<thead class="bg-primary">
 				<tr>
 					<th>Book Name</th>
 					<th>Author Name</th>
