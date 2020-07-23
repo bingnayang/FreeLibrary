@@ -5,16 +5,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Free Library</title>
 </head>
 <body>
-	<div class="container-fluid">
-		<table class="table table-striped">
-			<thead class="thead-dark">
+	<nav class="navbar navbar-dark bg-primary">
+		<a class="navbar-brand" href="#"> 
+			<i class="fa fa-book" aria-hidden="true"></i>
+			Free Library
+		</a>
+	</nav>
+	<nav class="nav bg-light text-dark">
+		<button type="button" class="btn btn-outline-primary" style="margin: 5px;">Add New Book</button> 
+		<button type="button" class="btn btn-outline-primary" style="margin: 5px;">Search Books by Author</button> 
+		<button type="button" class="btn btn-outline-primary" style="margin: 5px;">Search Books by Publisher</button> 
+	</nav>
+	<div class="container-fluid" style="margin-top: 2em;">
+		<table class="table">
+			<thead>
 				<tr>
-					<th>Name</th>
+					<th>Book Name</th>
 					<th>Author Name</th>
 					<th>Genre</th>
 					<th>Publisher</th>
