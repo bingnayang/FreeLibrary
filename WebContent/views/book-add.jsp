@@ -3,14 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Context-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
 <title>Add New Book</title>
 </head>
 <body>
-	<div class="container">
-		<form action="${pageContext.request.contextPath}/BookInfoController" method="POST">
+	<div class="container alert-info" style="padding: 15px; margin-top: 2em;">
+		<h3 class="text-center">Add New Book To Database</h3>
+		<form action="${pageContext.request.contextPath}/BookController" method="POST">
 			<div class="form-group">
 				<label for="bookName">Name</label> 
 				<input type="text" class="form-control" name="bookName"> 
@@ -19,7 +20,7 @@
 				<label for="authorName">Author Name</label> 
 				<input type="text" class="form-control" name="authorName">
 			</div>
-			<div class="form-group">
+ 			<div class="form-group">
 				<label for="genreName">Genre</label> 
 				<input type="text" class="form-control" name="genreName">
 			</div>
@@ -40,7 +41,7 @@
 				<input type="number" class="form-control" name="isbn_13">
 			</div>
 			
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-info btn-block">Submit</button>
 		</form>
 	</div>
 </body>

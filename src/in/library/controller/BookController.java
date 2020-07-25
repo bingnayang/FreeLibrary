@@ -25,19 +25,30 @@ public class BookController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Call DAO method to get list of booksInfo
-		List<BookInfo> list = bookInfoDAO.get();		
+		List<BookInfo> allBookList = bookInfoDAO.get();		
 		// Add the book to request object
-		request.setAttribute("list",list);
+		request.setAttribute("allBookList",allBookList);
 		// Get the request dispatcher
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/book-list.jsp");
 		// Forward the request and response objects
 		dispatcher.forward(request,response);
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String book_Name = request.getParameter("bookName");
+		String author_Name = request.getParameter("authorName");
+		String genre_Name = request.getParameter("genreName");
+		String publisher_Name = request.getParameter("publisherName");
+		String publication_Date = request.getParameter("publicationDate");
+		int pageCount = Integer.parseInt(request.getParameter("pageCount"));
+		long isbn_13 = Long.parseLong(request.getParameter("isbn_13"));
+		// test
+		System.out.println("Book name: "+book_Name);
+		System.out.println("Author name: "+author_Name);
+		System.out.println("Genre: "+genre_Name);
+		System.out.println("Publisher: "+publisher_Name+" | Publication Date: "+publication_Date);
+		System.out.println("Page Count: "+pageCount);
+		System.out.println("ISBN-13: "+isbn_13);
 	}
 
 }
