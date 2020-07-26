@@ -14,6 +14,15 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 	// Create SQL query
 	private static final String QUERY_ALL_BOOK = 
 			"SELECT * FROM books_info";
+	
+	private static final String QUERY_BOOK_BY_AUTHOR = 
+			"SELECT * FROM books_info WHERE authorName = ?";
+	private static final String QUERY_BOOK_BY_GENRE = 
+			"SELECT * FROM books_info WHERE books_info.genreName = ?";
+	private static final String QUERY_BOOK_BY_PUBLISHER = 
+			"SELECT * FROM books_info WHERE books_info.publisherName = ?";
+
+	
 	private static final String QUERY_AUTHOR_ID = "";
 	private static final String QUERY_GENRE_ID = "";
 	private static final String QUERY_PUBLISHER_ID = "";

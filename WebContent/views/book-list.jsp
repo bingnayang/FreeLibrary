@@ -13,28 +13,33 @@
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark">
-		<a class="navbar-brand" href="#"> <i class="fa fa-book"
-			aria-hidden="true"></i> Free Library
+		<a class="navbar-brand" href="#"> 
+			<i class="fa fa-book" aria-hidden="true"></i> 
+			Free Library
 		</a>
 	</nav>
-	<nav class="nav bg-info text-dark">
-		<button type="button" class="btn btn-outline-dark"
-			style="margin: 5px;"
-			onclick="window.location.href='views/book-add.jsp'">Add New
-			Book</button>
-		<button type="button" class="btn btn-outline-dark"
-			style="margin: 5px;">Search Books by Author</button>
-		<button type="button" class="btn btn-outline-dark"
-			style="margin: 5px;">Search Books by Publisher</button>
-		<button type="button" class="btn btn-outline-dark"
-			style="margin: 5px;">Search Books by Genre</button>
-	</nav>
+	<div class="container-fluid" style="padding-top: 2em;">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<button class="btn btn-outline-secondary dropdown-toggle"
+					type="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">Search Book By</button>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Author</a> 
+					<a class="dropdown-item" href="#">Genre</a> 
+					<a class="dropdown-item" href="#">Publisher</a>
+				</div>
+			</div>
+			<input type="text" class="form-control" aria-label="Text input with dropdown button">
+		</div>	
+	</div>
+
 	<!-- Card for display all book -->
-	<div class="card" style="margin-top: 2em;">
+	<div class="card container-fluid" style="margin-top: 2em;">
 		<h5 class="card-header">Books List</h5>
 		<div class="card-body">
 			<!-- 	Table that display all book in database-->
-			<div class="container-fluid table-responsive">
+			<div class="table-responsive">
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -63,6 +68,9 @@
 		</div>
 	</div>
 
-
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
