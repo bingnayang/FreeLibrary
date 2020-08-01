@@ -5,11 +5,17 @@
 <head>
 <meta http-equiv="Context-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Add New Book</title>
 </head>
 <body>
-	<div class="container alert-info" style="padding: 15px; margin-top: 2em;">
+	<nav class="navbar mb-2" style="background-color: #1F3944;">
+		<a class="navbar-brand text-light" href="#" > <i class="fa fa-book"
+			aria-hidden="true"></i> Free Library
+		</a>
+	</nav>
+	<div class="container" style="padding: 15px;">
 		<h3 class="text-center">Add New Book To Database</h3>
 		<form action="${pageContext.request.contextPath}/BookController" method="POST">
 			<div class="form-group">
@@ -41,7 +47,7 @@
 				<input type="number" class="form-control" name="isbn_13">
 			</div>
 			
-			<button type="submit" class="btn btn-info btn-block">Submit</button>
+			<button type="submit" class="btn btn-block text-light" style="background-color: #1F3944;">Submit</button>
 		</form>
 	</div>
 </body>

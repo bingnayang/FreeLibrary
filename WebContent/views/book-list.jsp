@@ -12,8 +12,8 @@
 <title>Free Library</title>
 </head>
 <body>
-	<nav class="navbar navbar-dark bg-dark mb-2">
-		<a class="navbar-brand" href="#"> <i class="fa fa-book"
+	<nav class="navbar mb-2" style="background-color: #1F3944;">
+		<a class="navbar-brand text-light" href="#"> <i class="fa fa-book"
 			aria-hidden="true"></i> Free Library
 		</a>
 	</nav>
