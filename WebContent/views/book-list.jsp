@@ -12,30 +12,25 @@
 <title>Free Library</title>
 </head>
 <body>
-	<nav class="navbar navbar-dark bg-dark">
-		<a class="navbar-brand" href="#"> 
-			<i class="fa fa-book" aria-hidden="true"></i> 
-			Free Library
+	<nav class="navbar navbar-dark bg-dark mb-2">
+		<a class="navbar-brand" href="#"> <i class="fa fa-book"
+			aria-hidden="true"></i> Free Library
 		</a>
 	</nav>
-	<div class="container-fluid" style="padding-top: 2em;">
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<button class="btn btn-outline-secondary dropdown-toggle"
-					type="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">Search Book By</button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Author</a> 
-					<a class="dropdown-item" href="#">Genre</a> 
-					<a class="dropdown-item" href="#">Publisher</a>
-				</div>
-			</div>
-			<input type="text" class="form-control" aria-label="Text input with dropdown button">
-		</div>	
+
+	<div class="card text-center container-fluid mb-2">
+		<div class="card-header">
+			<h4>Welcome to Free Library</h4>
+		</div>
+		<div class="card-body">
+			<h5 class="card-title"></h5>
+			<p class="card-text"></p>
+			<a href="#" class="btn btn-primary" onclick="window.location.href='views/book-add.jsp'">Add New Book</a>
+		</div>
 	</div>
 
 	<!-- Card for display all book -->
-	<div class="card container-fluid" style="margin-top: 2em;">
+	<div class="card container-fluid">
 		<h5 class="card-header">Books List</h5>
 		<div class="card-body">
 			<!-- 	Table that display all book in database-->
@@ -68,9 +63,17 @@
 		</div>
 	</div>
 
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
 </body>
 </html>
