@@ -42,14 +42,23 @@ public class BookController extends HttpServlet {
 		String publication_Date = request.getParameter("publicationDate");
 		int pageCount = Integer.parseInt(request.getParameter("pageCount"));
 		long isbn_13 = Long.parseLong(request.getParameter("isbn_13"));
-				
-		// test
-//		System.out.println("Book name: "+book_Name);
-//		System.out.println("Author name: "+author_Name);
-//		System.out.println("Genre: "+genre_Name);
-//		System.out.println("Publisher: "+publisher_Name+" | Publication Date: "+publication_Date);
-//		System.out.println("Page Count: "+pageCount);
-//		System.out.println("ISBN-13: "+isbn_13);
+		
+
+			bookInfoDAO.searchAuthorId("author_Name");
+			bookInfoDAO.searchGenreId("genre_Name");
+			bookInfoDAO.searchPublisherId("publication_Name");
+			
+			
+			// test
+			System.out.println("Book name: "+book_Name);
+			System.out.println("Author name: "+author_Name);
+			System.out.println("Genre: "+genre_Name);
+			System.out.println("Publisher: "+publisher_Name+" | Publication Date: "+publication_Date);
+			System.out.println("Page Count: "+pageCount);
+			System.out.println("ISBN-13: "+isbn_13);
+			System.out.println("=======================================");
+			
+
 		
 	}
 

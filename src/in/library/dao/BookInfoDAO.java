@@ -6,7 +6,11 @@ import in.library.entity.BookInfo;
 public interface BookInfoDAO {
 	List<BookInfo> get();
 	boolean save(BookInfo bookInfo);
-	int searchAuthorId(String name)throws Exception;
-	int searchGenreId(String name)throws Exception;
-	int searchPublisherId(String name)throws Exception;
+	boolean insertNewAuthor();
+	boolean insertNewGenre();
+	boolean insertNewPublisher();
+	int searchAuthorId(String name);
+	int searchGenreId(String name);
+	int searchPublisherId(String name);
+	
 }
