@@ -11,6 +11,16 @@
   </welcome-file-list>
   <servlet>
     <description></description>
+    <display-name>BookInfoController</display-name>
+    <servlet-name>BookInfoController</servlet-name>
+    <servlet-class>in.library.controller.BookInfoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookInfoController</servlet-name>
+    <url-pattern>/BookInfoController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>BookController</display-name>
     <servlet-name>BookController</servlet-name>
     <servlet-class>in.library.controller.BookController</servlet-class>
