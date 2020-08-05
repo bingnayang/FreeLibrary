@@ -20,11 +20,11 @@
 		<form action="${pageContext.request.contextPath}/BookController" method="POST">
 			<div class="form-group">
 				<label for="bookName">Name</label> 
-				<input type="text" class="form-control" name="bookName" value="The Great Gatsby"> 
+				<input type="text" class="form-control" name="bookName" value="Midnight Sun"> 
 			</div>
 			<div class="form-group">
 				<label for="authorName">Author Name</label> 
-				<input type="text" class="form-control" name="authorName" value="F. Scott Fitzgerald">
+				<input type="text" class="form-control" name="authorName" value="Stephenie Meyer">
 			</div>
  			<div class="form-group">
 				<label for="genreName">Genre</label> 
@@ -32,19 +32,19 @@
 			</div>
 			<div class="form-group">
 				<label for="publisherName">Publisher Name</label> 
-				<input type="text" class="form-control" name="publisherName" value="Scribner">
+				<input type="text" class="form-control" name="publisherName" value="Little, Brown Books for Young Readers">
 			</div>
 			<div class="form-group">
 				<label for="publicationDate">Publication Date</label> 
-				<input type="text" class="form-control" name="publicationDate" placeholder="mm/dd/yyyy" value="09/30/2004">
+				<input type="text" class="form-control" name="publicationDate" placeholder="mm/dd/yyyy" value="08/04/2020">
 			</div>
 			<div class="form-group">
 				<label for="pageCount">Page Count</label> 
-				<input type="number" class="form-control" name="pageCount" value=208>
+				<input type="number" class="form-control" name="pageCount" value=672>
 			</div>
 			<div class="form-group">
 				<label for="isbn_13">ISBN-13</label> 
-				<input type="number" class="form-control" name="isbn_13" value=9780743273565>
+				<input type="number" class="form-control" name="isbn_13" value=9780316707046>
 			</div>
 			
 			<button type="submit" class="btn btn-block text-light" style="background-color: #1F3944;">Submit</button>

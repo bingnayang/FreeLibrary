@@ -52,7 +52,7 @@ public class BookDAOImplement implements BookDAO{
 		authorID = resultSet.getInt("author_Id");
 		System.out.println("Author Id: "+authorID);
 		
-		}catch (SQLException e) {
+		}catch (Exception e) {
 			// TODO: handle exception
 			authorID = -1;
 			System.out.println("Error Author Id: "+authorID);

@@ -41,7 +41,7 @@ public class BookController extends HttpServlet {
 			int genreID = bookDAO.searchGenreId(genre_Name);
 			int publisherID = bookDAO.searchPublisherId(publisher_Name);
 			
-			if (authorID != -1) {
+			if (authorID == -1) {
 				bookDAO.insertNewAuthor(author_Name);
 				authorID = bookDAO.searchAuthorId(author_Name);	
 			}
