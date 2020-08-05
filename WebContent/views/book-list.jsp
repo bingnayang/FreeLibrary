@@ -19,7 +19,7 @@
 	</nav>
 
 	<div class="card text-center container-fluid mb-2">
-		<div class="card-header">
+		<div class="card-header text-light" style="background-color: #1F3944;">
 			<h4>Welcome to Free Library</h4>
 		</div>
 		<div class="card-body">
@@ -31,12 +31,11 @@
 
 	<!-- Card for display all book -->
 	<div class="card container-fluid">
-		<h5 class="card-header">Books List</h5>
 		<div class="card-body">
 			<!-- 	Table that display all book in database-->
 			<div class="table-responsive">
 				<table class="table table-striped">
-					<thead>
+					<thead class="text-light" style="background-color: #1F3944;">
 						<tr>
 							<th>Book Name</th>
 							<th>Author Name</th>

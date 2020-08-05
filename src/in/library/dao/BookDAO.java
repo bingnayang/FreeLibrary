@@ -1,8 +1,9 @@
 package in.library.dao;
 
+import in.library.entity.Books;
 
 public interface BookDAO {
-	boolean save();
+	boolean save(Books book);
 	boolean insertNewAuthor(String name);
 	boolean insertNewGenre(String name);
 	boolean insertNewPublisher(String name);

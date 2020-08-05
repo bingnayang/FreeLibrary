@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import in.library.entity.Books;
 import in.library.util.DBConnectionUtil;
 
 public class BookDAOImplement implements BookDAO{
@@ -23,10 +24,11 @@ public class BookDAOImplement implements BookDAO{
 	PreparedStatement preparedStatement = null;
 	
 	@Override
-	public boolean save() {
+	public boolean save(Books book) {
 		boolean flag = false;
 		try {
-			String sql = "INSERT INTO books (name,pageCount,author_Id,genres_Id,isbn_13,publisher_Id,publicationDate) VALUES ()";
+			String sql = "INSERT INTO books (name,pageCount,author_Id,genres_Id,isbn_13,publisher_Id,publicationDate) "
+					+ "VALUES ('"+book.getName()+"',"+book.getPageCount()+","+book.getAuthor_Id()+","+book.getGenres_Id()+","+book.getIsbn_13()+","+book.getPublisher_Id()+",'"+book.getPublicationDate()+"')";
 			connection = DBConnectionUtil.openConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.executeUpdate();

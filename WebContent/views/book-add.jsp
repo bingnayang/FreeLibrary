@@ -15,7 +15,7 @@
 			aria-hidden="true"></i> Free Library
 		</a>
 	</nav>
-	<div class="container" style="padding: 15px;">
+	<div class="container bg-light" style="padding: 15px;">
 		<h3 class="text-center">Add New Book To Database</h3>
 		<form action="${pageContext.request.contextPath}/BookController" method="POST">
 			<div class="form-group">
