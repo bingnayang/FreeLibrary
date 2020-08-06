@@ -25,12 +25,32 @@ public class SearchController extends HttpServlet {
 	} 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String temp = request.getParameter("getAuthorName");
-		System.out.println("Author Name: "+temp);
-		List<BookInfo> authorBookList = bookInfoDAO.searchByAuthor(temp);		
+		List<BookInfo> authorBookList = null;
+		
+		String getSearchInput = request.getParameter("getInput");
+		String getSearchBy = request.getParameter("searchBy");
+		
+		System.out.println("==================================");
+		System.out.println("Search By "+getSearchBy);
+		System.out.println("Author Name: "+getSearchInput);
+		
+		switch(getSearchBy) {
+		case "author":
+			authorBookList = bookInfoDAO.searchByAuthor(getSearchInput);
+			break;
+		case "genre":
+			authorBookList = bookInfoDAO.searchByGenre(getSearchInput);
+			break;
+		case "publisher":
+			authorBookList = bookInfoDAO.searchByPublisher(getSearchInput);
+			break;
+		}
+				
         for(BookInfo model : authorBookList) {
             System.out.println(model.getName());
         }
+		System.out.println("==================================");
+		
 		// Add the book to request object
 		request.setAttribute("bookList",authorBookList);
 		// Get the request dispatcher

@@ -24,23 +24,18 @@
 	<div class="container">
 		<form action="${pageContext.request.contextPath}/SearchController" method="GET" class="form-inline">
 			<div class="form-group mb-2">
-				<select class="form-control">
+				<select class="form-control" id="searchBy" name="searchBy">
 					<option value="author">Search by Author</option>
 					<option value="publisher">Search by Publisher</option>
 				    <option value="genre">Search by Genre</option>
 				</select>
 			</div>
 			<div class="form-group mx-sm-3 mb-2">
-				<input type="text" id="disabledTextInput" class="form-control" name="getAuthorName" value="Stephenie Meyer">
+				<input type="text" id="myInput" class="form-control" name="getInput">
 			</div>
 			<button type="submit" class="btn btn-primary mx-sm-3 mb-2 ">Submit</button>
 		</form>
 	</div>
-
-
-
-
-
 
 	<!-- Card for display all book -->
 	<div class="card container-fluid">
