@@ -16,19 +16,32 @@
 		<a class="navbar-brand text-light" href="#"> <i class="fa fa-book"
 			aria-hidden="true"></i> Free Library
 		</a>
+		<div class="form-inline">
+			<button class="btn btn-outline-light mr-sm-2" onclick="goBack();">Back To Book List</button>
+	  </div>
 	</nav>
 
-	<div class="card text-center container-fluid mb-2">
-		<div class="card-header text-light" style="background-color: #1F3944;">
-			<h4>Welcome to Free Library</h4>
-		</div>
-		<div class="card-body">
-			<h5 class="card-title"></h5>
-			<p class="card-text"></p>
-			<a href="#" class="btn btn-primary" onclick="window.location.href='views/book-add.jsp'">Add New Book</a>
-			<a href="#" class="btn btn-primary" onclick="window.location.href='views/search.jsp'">Search Book</a>
-		</div>
+	<div class="container">
+		<form action="${pageContext.request.contextPath}/SearchController" method="GET" class="form-inline">
+			<div class="form-group mb-2">
+				<select class="form-control">
+					<option value="author">Search by Author</option>
+					<option value="publisher">Search by Publisher</option>
+				    <option value="genre">Search by Genre</option>
+				</select>
+			</div>
+			<div class="form-group mx-sm-3 mb-2">
+				<input type="text" id="disabledTextInput" class="form-control" name="getAuthorName" value="Stephenie Meyer">
+			</div>
+			<button type="submit" class="btn btn-primary mx-sm-3 mb-2 ">Submit</button>
+		</form>
 	</div>
+
+
+
+
+
+
 	<!-- Card for display all book -->
 	<div class="card container-fluid">
 		<div class="card-body">
@@ -46,7 +59,7 @@
 							<th>ISBN-13</th>
 						</tr>
 					</thead>
-					<c:forEach items="${allBookList}" var="book">
+					<c:forEach items="${bookList}" var="book">
 						<tr>
 							<td>${book.name}</td>
 							<td>${book.authorName}</td>
@@ -75,4 +88,10 @@
 		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 		crossorigin="anonymous"></script>
 </body>
+<script type="text/javascript">
+	function goBack()
+	{
+		location.href="${pageContext.request.contextPath}/BookInfoController?action=LIST";
+	}
+</script>
 </html>

@@ -50,12 +50,12 @@ public class BookDAOImplement implements BookDAO{
 		preparedStatement.setString(1,name);
 		ResultSet resultSet = preparedStatement.executeQuery();
 		authorID = resultSet.getInt("author_Id");
-		System.out.println("Author Id: "+authorID);
+//		System.out.println("Author Id: "+authorID);
 		
 		}catch (Exception e) {
 			// TODO: handle exception
 			authorID = -1;
-			System.out.println("Error Author Id: "+authorID);
+//			System.out.println("Error Author Id: "+authorID);
 		}
 		return authorID;
 	}
@@ -69,12 +69,12 @@ public class BookDAOImplement implements BookDAO{
 			preparedStatement.setString(1,name);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			genreID = resultSet.getInt("genre_Id");
-			System.out.println("Genre Id Number: "+genreID);
+//			System.out.println("Genre Id Number: "+genreID);
 
 		}catch (Exception e) {
 			// TODO: handle exception
 			genreID = -1;
-			System.out.println("Error Genre Id: "+genreID);
+//			System.out.println("Error Genre Id: "+genreID);
 		}
 		return genreID;
 	}
@@ -88,11 +88,11 @@ public class BookDAOImplement implements BookDAO{
 			preparedStatement.setString(1,name);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			publisherID = resultSet.getInt(1);
-			System.out.println("Publisher Id: "+publisherID);
+//			System.out.println("Publisher Id: "+publisherID);
 		}catch (Exception e) {
 			// TODO: handle exception
 			publisherID = -1;
-			System.out.println("Error Publisher Id: "+publisherID);
+//			System.out.println("Error Publisher Id: "+publisherID);
 		}
 		return publisherID;
 	}
