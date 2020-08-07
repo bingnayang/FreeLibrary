@@ -10,6 +10,7 @@ public class BookInfo {
 	private String publicationDate;
 	private int pageCount;
 	private long isbn_13;
+	private String statusName;
 	// Setters and Getters
 	public int getBook_ID() {
 		return book_ID;
@@ -59,11 +60,11 @@ public class BookInfo {
 	public void setIsbn_13(long isbn_13) {
 		this.isbn_13 = isbn_13;
 	}
-	@Override
-	public String toString() {
-		return "BookInfo [book_ID=" + book_ID + ", name=" + name + ", authorName=" + authorName + ", genreName="
-				+ genreName + ", publisherName=" + publisherName + ", publicationDate=" + publicationDate
-				+ ", pageCount=" + pageCount + ", isbn_13=" + isbn_13 + "]";
+	public String getStatusName() {
+		return statusName;
+	}
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
 	}
 	
 	

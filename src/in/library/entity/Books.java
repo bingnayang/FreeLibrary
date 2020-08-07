@@ -10,8 +10,11 @@ public class Books {
 	private long isbn_13;
 	private int publisher_Id;
 	private String publicationDate;
+	private int status_Id;
 	
+
 	// Setters and Getters
+	
 	public int getBook_ID() {
 		return book_ID;
 	}
@@ -60,6 +63,11 @@ public class Books {
 	public void setPublicationDate(String publicationDate) {
 		this.publicationDate = publicationDate;
 	}
-
+	public int getStatus_Id() {
+		return status_Id;
+	}
+	public void setStatus_Id(int status_Id) {
+		this.status_Id = status_Id;
+	}
 	
 }

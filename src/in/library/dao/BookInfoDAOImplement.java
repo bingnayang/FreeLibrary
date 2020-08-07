@@ -46,6 +46,7 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 				bookInfo.setPublicationDate(resultSet.getString("publicationDate"));
 				bookInfo.setPageCount(resultSet.getInt("pageCount"));
 				bookInfo.setIsbn_13(resultSet.getLong("isbn_13"));
+				bookInfo.setStatusName(resultSet.getString("statusName"));
 				// Add book to list
 				list.add(bookInfo);
 			}
@@ -176,7 +177,7 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 			// Execute the query
 			resultSet = statement.executeQuery(sql);
 			total = resultSet.getInt(1);
-			System.out.println("SQL: "+sql);
+//			System.out.println("SQL: "+sql);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -186,3 +187,4 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 	}
 
 }
+

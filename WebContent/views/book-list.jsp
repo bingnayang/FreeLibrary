@@ -24,7 +24,7 @@
 		</div>
 		<div class="card-body">
 			<h5 class="card-title"></h5>
-			<p class="card-text">Total Book in Library: ${totalBook}</p>
+			<h5 class="card-text">Total Book in Library Database: ${totalBook}</h5>
 			<a href="#" class="btn btn-primary" onclick="window.location.href='views/book-add.jsp'">Add New Book</a>
 			<a href="#" class="btn btn-primary" onclick="window.location.href='views/search.jsp'">Search Book</a>
 		</div>
@@ -44,6 +44,7 @@
 							<th>Publication Date</th>
 							<th>Page Count</th>
 							<th>ISBN-13</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<c:forEach items="${allBookList}" var="book">
@@ -55,6 +56,7 @@
 							<td>${book.publicationDate}</td>
 							<td>${book.pageCount}</td>
 							<td>${book.isbn_13}</td>
+							<td>${book.statusName}</td>
 						</tr>
 					</c:forEach>
 				</table>
