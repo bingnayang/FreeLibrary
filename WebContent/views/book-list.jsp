@@ -24,7 +24,7 @@
 		</div>
 		<div class="card-body">
 			<h5 class="card-title"></h5>
-			<p class="card-text"></p>
+			<p class="card-text">Total Book in Library: ${totalBook}</p>
 			<a href="#" class="btn btn-primary" onclick="window.location.href='views/book-add.jsp'">Add New Book</a>
 			<a href="#" class="btn btn-primary" onclick="window.location.href='views/search.jsp'">Search Book</a>
 		</div>

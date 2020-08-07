@@ -164,4 +164,25 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 		return list;
 	}
 
+	@Override
+	public int getTotalBook() {
+		int total  = 0;
+		String sql = "SELECT COUNT(books_info.name) FROM books_info";
+		try {
+			// Get the database connection
+			connection = DBConnectionUtil.openConnection();
+			// Create a statement
+			statement = connection.createStatement();
+			// Execute the query
+			resultSet = statement.executeQuery(sql);
+			total = resultSet.getInt(1);
+			System.out.println("SQL: "+sql);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return total;
+	}
+
 }

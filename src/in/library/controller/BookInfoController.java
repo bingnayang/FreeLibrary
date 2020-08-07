@@ -24,9 +24,10 @@ public class BookInfoController extends HttpServlet {
 	} 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		int total = bookInfoDAO.getTotalBook();
+		request.setAttribute("totalBook",total);
+		
 		String action = request.getParameter("action");
-				
 		if(action == null) {
 			action = "LIST";
 		}

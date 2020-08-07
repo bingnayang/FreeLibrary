@@ -18,22 +18,24 @@
 		</a>
 		<div class="form-inline">
 			<button class="btn btn-outline-light mr-sm-2" onclick="goBack();">Back To Book List</button>
-	  </div>
+		</div>
 	</nav>
-
-	<div class="container">
-		<form action="${pageContext.request.contextPath}/SearchController" method="GET" class="form-inline">
-			<div class="form-group mb-2">
+ 	<div class="container">
+		<form action="${pageContext.request.contextPath}/SearchController"
+			method="GET" class="row">
+			<div class="form-group col-3">
 				<select class="form-control" id="searchBy" name="searchBy">
 					<option value="author">Search by Author</option>
 					<option value="publisher">Search by Publisher</option>
-				    <option value="genre">Search by Genre</option>
+					<option value="genre">Search by Genre</option>
 				</select>
 			</div>
-			<div class="form-group mx-sm-3 mb-2">
+			<div class="form-group col-6">
 				<input type="text" id="myInput" class="form-control" name="getInput">
 			</div>
-			<button type="submit" class="btn btn-primary mx-sm-3 mb-2 ">Submit</button>
+			<div class="form-group col">
+				<button type="submit" class="btn btn-primary btn-block">Submit</button>
+			</div>
 		</form>
 	</div>
 
@@ -52,6 +54,7 @@
 							<th>Publication Date</th>
 							<th>Page Count</th>
 							<th>ISBN-13</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<c:forEach items="${bookList}" var="book">
@@ -63,6 +66,11 @@
 							<td>${book.publicationDate}</td>
 							<td>${book.pageCount}</td>
 							<td>${book.isbn_13}</td>
+							<td><a type="button" class="btn btn-outline-info btn-sm"
+								href="${pageContext.request.contextPath}/SearchController?action=EDIT&id=${book.book_ID}">Edit</a>
+								/ <a type="button" class="btn btn-outline-danger btn-sm"
+								href="${pageContext.request.contextPath}/SearchController?action=DELETE&id=${book.book_ID}">Delete</a>
+							</td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -84,9 +92,8 @@
 		crossorigin="anonymous"></script>
 </body>
 <script type="text/javascript">
-	function goBack()
-	{
-		location.href="${pageContext.request.contextPath}/BookInfoController?action=LIST";
+	function goBack() {
+		location.href = "${pageContext.request.contextPath}/BookInfoController?action=LIST";
 	}
 </script>
 </html>
