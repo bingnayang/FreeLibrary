@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import in.library.dao.BookInfoDAO;
 import in.library.dao.BookInfoDAOImplement;
 import in.library.entity.BookInfo;
+import in.library.entity.RentalInfo;
 
 public class BookInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,6 +25,7 @@ public class BookInfoController extends HttpServlet {
 	} 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Get total of book in library database
 		int total = bookInfoDAO.getTotalBook();
 		request.setAttribute("totalBook",total);
 		
@@ -34,11 +36,16 @@ public class BookInfoController extends HttpServlet {
 		switch(action) {
 		case "LIST":
 			listAllBook(request,response);
+//			listRentOutBook(request,response);
 			break;
 		}
         
 	}
 	public void listAllBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		// Call DAO method to get list of rentalInfo
+		List<RentalInfo> allRentOutBookList = bookInfoDAO.getRentOutList();	
+		// Add the book to request object
+		request.setAttribute("allRentOutBookList",allRentOutBookList);
 		// Call DAO method to get list of booksInfo
 		List<BookInfo> allBookList = bookInfoDAO.get();		
 		// Add the book to request object
@@ -46,7 +53,7 @@ public class BookInfoController extends HttpServlet {
 		// Get the request dispatcher
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/book-list.jsp");
 		// Forward the request and response objects
-		dispatcher.forward(request,response);
+		dispatcher.forward(request,response);	
 	}
 
 }

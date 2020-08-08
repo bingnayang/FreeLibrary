@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import in.library.entity.BookInfo;
+import in.library.entity.RentalInfo;
 import in.library.util.DBConnectionUtil;
 
 public class BookInfoDAOImplement implements BookInfoDAO {
@@ -184,6 +185,38 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 			e.printStackTrace();
 		}
 		return total;
+	}
+
+	@Override
+	public List<RentalInfo> getRentOutList() {
+		// Create reference variables
+		List<RentalInfo> list = null;
+		RentalInfo rentInfo = null;
+		String sql = "SELECT * FROM rentals_info";
+		try {
+			list = new ArrayList<RentalInfo>();
+			// Get the database connection
+			connection = DBConnectionUtil.openConnection();
+			// Create a statement
+			statement = connection.createStatement();
+			// Execute the query
+			resultSet = statement.executeQuery(sql);
+			// Process the resultSet
+			while(resultSet.next()) {
+				rentInfo = new RentalInfo();
+				rentInfo.setBookName(resultSet.getString("name"));
+				rentInfo.setAuthorName(resultSet.getString("authorName"));
+				rentInfo.setCustomerName(resultSet.getString("customerName"));
+				rentInfo.setOutDate(resultSet.getString("rentOutDate"));
+				rentInfo.setReturnDate(resultSet.getString("returnDate"));
+				// Add book to list
+				list.add(rentInfo);
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 }

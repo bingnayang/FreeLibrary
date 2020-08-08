@@ -76,15 +76,16 @@
 					<tr>
 						<th>Book Name</th>
 						<th>Author Name</th>
-						<th>Rent Date Start</th>
-						<th>Rent Date Return</th>
+						<th>Date Rent Start</th>
 						<th>Customer Name</th>
 					</tr>
 				</thead>
-				<c:forEach items="${allBookList}" var="book">
+				<c:forEach items="${allRentOutBookList}" var="rent">
 					<tr>
-						<td>${book.name}</td>
-						<td>${book.authorName}</td>
+						<td>${rent.bookName}</td>
+						<td>${rent.authorName}</td>
+						<td>${rent.outDate}</td>	
+						<td>${rent.customerName}</td>											
 					</tr>
 				</c:forEach>
 			</table>
