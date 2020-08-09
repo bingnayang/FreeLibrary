@@ -47,6 +47,22 @@ public class BookInfoController extends HttpServlet {
 		}
         
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String customerName = req.getParameter("customerName");
+		String customerEmail = req.getParameter("customerEmail");
+		int bookID = Integer.parseInt(req.getParameter("book_Id"));
+
+		System.out.println("Name: "+customerName);
+		System.out.println("Email: "+customerEmail);
+		System.out.println("Book Id: "+bookID);
+		
+		
+		resp.sendRedirect("BookInfoController");
+		
+	}
+
 	public void listBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		// Call DAO method to get list of rentalInfo
 		List<RentalInfo> allRentOutBookList = bookInfoDAO.getRentOutList();	
@@ -62,8 +78,17 @@ public class BookInfoController extends HttpServlet {
 		dispatcher.forward(request,response);	
 	}
 	public void getSingleRent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		String bookId = request.getParameter("id");
+		int bookId = Integer.parseInt(request.getParameter("id"));
 		System.out.println("Book Id: "+bookId);
+		
+		List<BookInfo> allBookList = bookInfoDAO.searchById(bookId);
+		// Add the book to request object
+		request.setAttribute("bookInfo",allBookList);
+		// Get the request dispatcher
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/rental.jsp");
+		// Forward the request and response objects
+		dispatcher.forward(request,response);	
 	}
+
 
 }

@@ -51,4 +51,9 @@
 		</form>
 	</div>
 </body>
+<script type="text/javascript">
+	function goBack() {
+		location.href = "${pageContext.request.contextPath}/BookInfoController?action=LIST";
+	}
+</script>
 </html>

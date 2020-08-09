@@ -17,12 +17,67 @@
 			aria-hidden="true"></i> Free Library
 		</a>
 		<div class="form-inline">
-			<button class="btn btn-outline-light mr-sm-2" onclick="goBack();">Back To Book List</button>
+			<button class="btn btn-outline-light mr-sm-2" onclick="goBack();">Back
+				To Book List</button>
 		</div>
 	</nav>
 	
-	<form action="">
-		<label>Book Title: </label> <input value="test">
-	</form>
+	<div class="container">
+		<div class="card">
+			<h5 class="card-header">Book Information</h5>
+			<div class="card-body">
+				<c:forEach var="book" items="${bookInfo}">
+					<h5 class="card-title">
+						<c:out value="${book.name}" />
+					</h5>
+					<p class="card-text">
+						Author:
+						<c:out value="${book.authorName}" />
+					</p>
+					<p class="card-text">
+						Genre:
+						<c:out value="${book.genreName}" />
+					</p>
+					<p class="card-text">
+						Publisher:
+						<c:out value="${book.publisherName}" />
+					</p>
+					<p class="card-text">
+						ISBN-13:
+						<c:out value="${book.genreName}" />
+					</p>
+				</c:forEach>					
+			</div>
+		</div>	
+	</div>
+
+	<div class="container">
+		<div class="card">
+			<h5 class="card-header">Customer Contact Info</h5>
+			<div class="card-body">
+				<form action="${pageContext.request.contextPath}/BookInfoController" method="POST">
+					<div class="form-group">
+						<label for="customerName">Name</label> 
+						<input type="text" class="form-control" id="customerName" name="customerName" required="required">
+					</div>
+					<div class="form-group">
+						<label for="customerEmail">Email</label> 
+						<input type="email" class="form-control" id="customerEmail" name="customerEmail" required="required">
+					</div>
+					<div class="form-group">
+ 					<c:forEach var="book" items="${bookInfo}">
+					<input type="hidden" class="form-control" name="book_Id" value="${book.book_ID}">
+					</c:forEach>
+					</div>
+					<button type="submit" class="btn btn-primary btn-block">Rent the Book</button>
+				</form>	
+			</div>
+		</div>
+	</div>
 </body>
+<script type="text/javascript">
+	function goBack() {
+		location.href = "${pageContext.request.contextPath}/BookInfoController?action=LIST";
+	}
+</script>
 </html>

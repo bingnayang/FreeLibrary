@@ -240,5 +240,41 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 		return total;
 	}
 
+	@Override
+	public List<BookInfo> searchById(int Id) {
+		// Create reference variables
+		List<BookInfo> list = null;
+		BookInfo bookInfo = null;
+		try {
+			String sql = "SELECT * FROM books_info WHERE books_info.book_Id = "+Id;
+			list = new ArrayList<BookInfo>();
+			// Get the database connection
+			connection = DBConnectionUtil.openConnection();
+			// Create a statement
+			statement = connection.createStatement();
+			// Execute the query
+			resultSet = statement.executeQuery(sql);
+			System.out.println("SQL: "+sql);
+			// Process the resultSet
+			while(resultSet.next()) {
+				bookInfo = new BookInfo();
+				bookInfo.setBook_ID(resultSet.getInt("book_Id"));
+				bookInfo.setName(resultSet.getString("name"));
+				bookInfo.setGenreName(resultSet.getString("genreName"));
+				bookInfo.setAuthorName(resultSet.getString("authorName"));
+				bookInfo.setPublisherName(resultSet.getString("publisherName"));
+				bookInfo.setPublicationDate(resultSet.getString("publicationDate"));
+				bookInfo.setPageCount(resultSet.getInt("pageCount"));
+				bookInfo.setIsbn_13(resultSet.getLong("isbn_13"));
+				// Add book to list
+				list.add(bookInfo);
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return list;		
+	}
+
 }
 
