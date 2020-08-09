@@ -59,8 +59,10 @@ public class BookInfoController extends HttpServlet {
 		System.out.println("Book Id: "+bookID);
 		
 		
-		resp.sendRedirect("BookInfoController");
 		
+		
+		
+		resp.sendRedirect("BookInfoController");
 	}
 
 	public void listBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -81,7 +83,7 @@ public class BookInfoController extends HttpServlet {
 		int bookId = Integer.parseInt(request.getParameter("id"));
 		System.out.println("Book Id: "+bookId);
 		
-		List<BookInfo> allBookList = bookInfoDAO.searchById(bookId);
+		BookInfo allBookList = bookInfoDAO.searchById(bookId);
 		// Add the book to request object
 		request.setAttribute("bookInfo",allBookList);
 		// Get the request dispatcher

@@ -241,13 +241,11 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 	}
 
 	@Override
-	public List<BookInfo> searchById(int Id) {
+	public BookInfo searchById(int Id) {
 		// Create reference variables
-		List<BookInfo> list = null;
 		BookInfo bookInfo = null;
 		try {
 			String sql = "SELECT * FROM books_info WHERE books_info.book_Id = "+Id;
-			list = new ArrayList<BookInfo>();
 			// Get the database connection
 			connection = DBConnectionUtil.openConnection();
 			// Create a statement
@@ -266,14 +264,12 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 				bookInfo.setPublicationDate(resultSet.getString("publicationDate"));
 				bookInfo.setPageCount(resultSet.getInt("pageCount"));
 				bookInfo.setIsbn_13(resultSet.getLong("isbn_13"));
-				// Add book to list
-				list.add(bookInfo);
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		return list;		
+		return bookInfo;		
 	}
 
 }

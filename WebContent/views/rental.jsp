@@ -25,28 +25,12 @@
 	<div class="container">
 		<div class="card">
 			<h5 class="card-header">Book Information</h5>
-			<div class="card-body">
-				<c:forEach var="book" items="${bookInfo}">
-					<h5 class="card-title">
-						<c:out value="${book.name}" />
-					</h5>
-					<p class="card-text">
-						Author:
-						<c:out value="${book.authorName}" />
-					</p>
-					<p class="card-text">
-						Genre:
-						<c:out value="${book.genreName}" />
-					</p>
-					<p class="card-text">
-						Publisher:
-						<c:out value="${book.publisherName}" />
-					</p>
-					<p class="card-text">
-						ISBN-13:
-						<c:out value="${book.genreName}" />
-					</p>
-				</c:forEach>					
+			<div class="card-body">	
+				<h5 class="card-title">${bookInfo.name}</h5>
+				<p class="card-text">${bookInfo.authorName}</p>			
+				<p class="card-text">${bookInfo.genreName}</p>	
+				<p class="card-text">${bookInfo.publisherName}</p>	
+				<p class="card-text">${bookInfo.isbn_13}</p>
 			</div>
 		</div>	
 	</div>
@@ -65,9 +49,7 @@
 						<input type="email" class="form-control" id="customerEmail" name="customerEmail" required="required">
 					</div>
 					<div class="form-group">
- 					<c:forEach var="book" items="${bookInfo}">
-					<input type="hidden" class="form-control" name="book_Id" value="${book.book_ID}">
-					</c:forEach>
+					<input type="hidden" class="form-control" name="book_Id" value="${bookInfo.book_ID}">
 					</div>
 					<button type="submit" class="btn btn-primary btn-block">Rent the Book</button>
 				</form>	
