@@ -24,16 +24,18 @@
 		</div>
 		<div class="card-body">
 			<h5 class="card-title"></h5>
-			<h5 class="card-text">Total Book in Library Database:
-				${totalBook}</h5>
-			<a href="#" class="btn btn-primary"
+			<h5 class="card-text">Total Book in library database: ${totalBook}</h5>
+			<h5 class="card-text">Total Book out for rent: ${totalRentBook}</h5>
+			<a href="#" class="btn btn-outline-info"
 				onclick="window.location.href='views/book-add.jsp'">Add New Book</a>
-			<a href="#" class="btn btn-primary"
+			<a href="#" class="btn btn-outline-info"
 				onclick="window.location.href='views/search.jsp'">Search Book</a>
 		</div>
 	</div>
 	<!-- Display all book in database-->
+	
 	<div class="container-fluid">
+		<h4 class="text-center text-light" style="background-color: #1F3944; padding: 5px;">All Book in Library Database</h4>
 		<!-- 	Table that display all book in database-->
 		<div class="table-responsive">
 			<table class="table table-striped">
@@ -61,8 +63,8 @@
 						<td>${book.isbn_13}</td>
 						<td>${book.statusName}</td>
 						<td><a type="button" class="btn btn-outline-info btn-sm"
-							href="#" class="btn btn-primary"
-							onclick="window.location.href='views/rental.jsp'">Rent</a></td>
+							class="btn btn-primary"
+							href="${pageContext.request.contextPath}/BookInfoController?action=RENT&id=${book.book_ID}">Rent</a></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -70,6 +72,7 @@
 	</div>
 	<!-- Display all book are currently rent out -->
 	<div class="container-fluid">
+		<h4 class="text-center text-light" style="background-color: #1F3944; padding: 5px;">Book Out for Rent</h4>
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<thead class="text-light" style="background-color: #1F3944;">
@@ -78,6 +81,7 @@
 						<th>Author Name</th>
 						<th>Date Rent Start</th>
 						<th>Customer Name</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<c:forEach items="${allRentOutBookList}" var="rent">
@@ -85,15 +89,15 @@
 						<td>${rent.bookName}</td>
 						<td>${rent.authorName}</td>
 						<td>${rent.outDate}</td>	
-						<td>${rent.customerName}</td>											
+						<td>${rent.customerName}</td>		
+						<td><a type="button" class="btn btn-outline-info btn-sm"
+							href="#" class="btn btn-primary"
+							onclick="window.location.href='views/rental.jsp'">Book Return</a></td>									
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
 	</div>
-
-
-
 
 	<!-- JS, Popper.js, and jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

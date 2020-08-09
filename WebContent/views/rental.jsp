@@ -20,5 +20,9 @@
 			<button class="btn btn-outline-light mr-sm-2" onclick="goBack();">Back To Book List</button>
 		</div>
 	</nav>
+	
+	<form action="">
+		<label>Book Title: </label> <input value="test">
+	</form>
 </body>
 </html>

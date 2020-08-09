@@ -28,20 +28,26 @@ public class BookInfoController extends HttpServlet {
 		// Get total of book in library database
 		int total = bookInfoDAO.getTotalBook();
 		request.setAttribute("totalBook",total);
+		// Get total of book out for rent
+		int totalRent = bookInfoDAO.getTotalRentOutBook();
+		request.setAttribute("totalRentBook",totalRent);
+		
 		
 		String action = request.getParameter("action");
 		if(action == null) {
 			action = "LIST";
 		}
 		switch(action) {
-		case "LIST":
-			listAllBook(request,response);
-//			listRentOutBook(request,response);
-			break;
+			case "LIST":
+				listBook(request,response);
+				break;
+			case "RENT":
+				getSingleRent(request,response);
+				break;
 		}
         
 	}
-	public void listAllBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	public void listBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		// Call DAO method to get list of rentalInfo
 		List<RentalInfo> allRentOutBookList = bookInfoDAO.getRentOutList();	
 		// Add the book to request object
@@ -54,6 +60,10 @@ public class BookInfoController extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/book-list.jsp");
 		// Forward the request and response objects
 		dispatcher.forward(request,response);	
+	}
+	public void getSingleRent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		String bookId = request.getParameter("id");
+		System.out.println("Book Id: "+bookId);
 	}
 
 }
