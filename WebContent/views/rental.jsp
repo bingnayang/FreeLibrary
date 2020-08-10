@@ -51,13 +51,14 @@
 					<div class="form-group">
 					<input type="hidden" class="form-control" name="book_Id" value="${bookInfo.book_ID}">
 					</div>
-					<button type="submit" class="btn btn-primary btn-block">Rent the Book</button>
+					<button type="submit" class="btn btn-primary btn-block" id="buttonStatus">Rent the Book</button>
 				</form>	
 			</div>
 		</div>
 	</div>
 </body>
 <script type="text/javascript">
+	
 	function goBack() {
 		location.href = "${pageContext.request.contextPath}/BookInfoController?action=LIST";
 	}

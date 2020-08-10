@@ -62,9 +62,20 @@
 						<td>${book.pageCount}</td>
 						<td>${book.isbn_13}</td>
 						<td>${book.statusName}</td>
-						<td><a type="button" class="btn btn-outline-info btn-sm"
-							class="btn btn-primary"
-							href="${pageContext.request.contextPath}/BookInfoController?action=RENT&id=${book.book_ID}">Rent</a></td>
+						<td>
+							<c:set var="inputDisplay" value="${book.statusName}" /><!-- This same as your request attribute -->
+							<c:choose>
+							    <c:when test="${book.statusName == 'In-Library'}">
+							    	<button type="button" class="btn btn-outline-info btn-sm" 
+							onclick="window.location.href='${pageContext.request.contextPath}/BookInfoController?action=RENT&id=${book.book_ID}'">Rent</button>
+							    </c:when>
+							    <c:otherwise>
+							        <button type="button" class="btn btn-outline-danger btn-sm"
+									onclick="window.location.href='${pageContext.request.contextPath}/BookInfoController?action=RENT&id=${book.book_ID}'" 
+									disabled="disabled">Rent</button>
+							    </c:otherwise>      
+							</c:choose>							
+						</td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -43,6 +43,8 @@ public class RentalController extends HttpServlet {
 			rentalInfoDAO.addCustomer(customerName, customerEmail);
 		}
 		
+		
+		
 		resp.sendRedirect("BookInfoController");
 	}
 
