@@ -1,6 +1,7 @@
 package in.library.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -48,23 +49,6 @@ public class BookInfoController extends HttpServlet {
         
 	}
 	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String customerName = req.getParameter("customerName");
-		String customerEmail = req.getParameter("customerEmail");
-		int bookID = Integer.parseInt(req.getParameter("book_Id"));
-
-		System.out.println("Name: "+customerName);
-		System.out.println("Email: "+customerEmail);
-		System.out.println("Book Id: "+bookID);
-		
-		
-		
-		
-		
-		resp.sendRedirect("BookInfoController");
-	}
-
 	public void listBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		// Call DAO method to get list of rentalInfo
 		List<RentalInfo> allRentOutBookList = bookInfoDAO.getRentOutList();	

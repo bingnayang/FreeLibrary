@@ -11,7 +11,7 @@
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Free Library</title>
 </head>
-<body>
+<body class="bg-light">
 	<nav class="navbar mb-2" style="background-color: #1F3944;">
 		<a class="navbar-brand text-light" href="#"> <i class="fa fa-book"
 			aria-hidden="true"></i> Free Library
@@ -22,24 +22,24 @@
 		</div>
 	</nav>
 	
-	<div class="container">
+	<div class="container" style="margin-bottom: 10px;">
 		<div class="card">
-			<h5 class="card-header">Book Information</h5>
+			<h5 class="card-header">Rental Book Information</h5>
 			<div class="card-body">	
 				<h5 class="card-title">${bookInfo.name}</h5>
-				<p class="card-text">${bookInfo.authorName}</p>			
-				<p class="card-text">${bookInfo.genreName}</p>	
-				<p class="card-text">${bookInfo.publisherName}</p>	
-				<p class="card-text">${bookInfo.isbn_13}</p>
+				<p class="card-text">Author: ${bookInfo.authorName}</p>			
+				<p class="card-text">Genre: ${bookInfo.genreName}</p>	
+				<p class="card-text">Publisher: ${bookInfo.publisherName}</p>	
+				<p class="card-text">ISBN-13: ${bookInfo.isbn_13}</p>
 			</div>
 		</div>	
 	</div>
 
 	<div class="container">
 		<div class="card">
-			<h5 class="card-header">Customer Contact Info</h5>
+			<h5 class="card-header">Customer Contact Information</h5>
 			<div class="card-body">
-				<form action="${pageContext.request.contextPath}/BookInfoController" method="POST">
+				<form action="${pageContext.request.contextPath}/RentalController" method="POST">
 					<div class="form-group">
 						<label for="customerName">Name</label> 
 						<input type="text" class="form-control" id="customerName" name="customerName" required="required">

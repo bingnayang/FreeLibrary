@@ -39,4 +39,14 @@
     <servlet-name>SearchController</servlet-name>
     <url-pattern>/SearchController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RentalController</display-name>
+    <servlet-name>RentalController</servlet-name>
+    <servlet-class>in.library.controller.RentalController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RentalController</servlet-name>
+    <url-pattern>/RentalController</url-pattern>
+  </servlet-mapping>
 </web-app>
