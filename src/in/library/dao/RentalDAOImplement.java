@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import in.library.entity.BookInfo;
+import in.library.entity.Rental;
 import in.library.util.DBConnectionUtil;
 
 public class RentalDAOImplement implements RentalDAO{
@@ -15,36 +15,7 @@ public class RentalDAOImplement implements RentalDAO{
 	ResultSet resultSet = null;
 	PreparedStatement preparedStatement = null;
 	
-	public BookInfo searchById(int Id) {
-		// Create reference variables
-		BookInfo bookInfo = null;
-		try {
-			String sql = "SELECT * FROM books_info WHERE books_info.book_Id = "+Id;
-			// Get the database connection
-			connection = DBConnectionUtil.openConnection();
-			// Create a statement
-			statement = connection.createStatement();
-			// Execute the query
-			resultSet = statement.executeQuery(sql);
-			System.out.println("SQL: "+sql);
-			// Process the resultSet
-			while(resultSet.next()) {
-				bookInfo = new BookInfo();
-				bookInfo.setBook_ID(resultSet.getInt("book_Id"));
-				bookInfo.setName(resultSet.getString("name"));
-				bookInfo.setGenreName(resultSet.getString("genreName"));
-				bookInfo.setAuthorName(resultSet.getString("authorName"));
-				bookInfo.setPublisherName(resultSet.getString("publisherName"));
-				bookInfo.setPublicationDate(resultSet.getString("publicationDate"));
-				bookInfo.setPageCount(resultSet.getInt("pageCount"));
-				bookInfo.setIsbn_13(resultSet.getLong("isbn_13"));
-			}
-		}catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return bookInfo;		
-	}
+
 	@Override
 	public boolean searchCustomer(String name, String email) {
 		// Create reference variables
@@ -87,6 +58,50 @@ public class RentalDAOImplement implements RentalDAO{
 			e.printStackTrace();
 		}
 		return false;	
+	}
+	@Override
+	public boolean updateStatus(int statusId,int bookId) {
+		String sql = "UPDATE books SET books.status_Id = ? WHERE books.book_Id = ?";
+
+		try {
+			// Get the database connection
+			connection = DBConnectionUtil.openConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1,statusId);
+			preparedStatement.setInt(2,bookId);
+			preparedStatement.executeUpdate();
+			return true;
+
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return false;	
+	}
+	@Override
+	public boolean addRentBook(Rental rent) {
+		
+		return false;
+		
+	}
+	@Override
+	public int getCustomerID(String name, String email) {
+		// Create reference variables
+		int customerID = 0;
+		try {
+			String sql = "SELECT customer_Id FROM customers WHERE customers.customerName = ? AND customers.email = ?";
+			connection = DBConnectionUtil.openConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1,name);
+			preparedStatement.setString(2,email);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			customerID = resultSet.getInt("customer_Id");
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			customerID = -1;
+		}
+		return customerID;
 	}
 
 }

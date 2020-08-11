@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import in.library.dao.RentalDAO;
 import in.library.dao.RentalDAOImplement;
+import in.library.entity.Rental;
 
 
 public class RentalController extends HttpServlet {
@@ -30,6 +31,7 @@ public class RentalController extends HttpServlet {
 		String customerEmail = req.getParameter("customerEmail");
 		int bookID = Integer.parseInt(req.getParameter("book_Id"));
 		LocalDate todayDate = LocalDate.now();
+		
 		// Testing
 		System.out.println("Name: "+customerName);
 		System.out.println("Email: "+customerEmail);
@@ -42,6 +44,17 @@ public class RentalController extends HttpServlet {
 			System.out.println("Add new customer to file");
 			rentalInfoDAO.addCustomer(customerName, customerEmail);
 		}
+		int customerID = rentalInfoDAO.getCustomerID(customerName,customerEmail);
+		System.out.println("Search for customer Id");
+		System.out.println("Customer Id: "+customerID);
+		
+		
+		Rental rent = new Rental();
+		rent.setBook_Id(bookID);
+		rent.setCustomer_Id(customerID);
+		rent.setOutDate(todayDate);
+		
+		rentalInfoDAO.addRentBook(rent);
 		
 		
 		

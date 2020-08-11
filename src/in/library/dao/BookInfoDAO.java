@@ -11,7 +11,7 @@ public interface BookInfoDAO {
 	List<BookInfo> searchByAuthor(String name);
 	List<BookInfo> searchByGenre(String name);
 	List<BookInfo> searchByPublisher(String name);
-	BookInfo searchById(int Id);
+	BookInfo searchBookById(int Id);
 	int getTotalBook();
 	int getTotalRentOutBook();
 }

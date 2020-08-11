@@ -67,7 +67,7 @@ public class BookInfoController extends HttpServlet {
 		int bookId = Integer.parseInt(request.getParameter("id"));
 		System.out.println("Book Id: "+bookId);
 		
-		BookInfo allBookList = bookInfoDAO.searchById(bookId);
+		BookInfo allBookList = bookInfoDAO.searchBookById(bookId);
 		// Add the book to request object
 		request.setAttribute("bookInfo",allBookList);
 		// Get the request dispatcher

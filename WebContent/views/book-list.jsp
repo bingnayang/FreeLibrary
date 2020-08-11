@@ -63,16 +63,16 @@
 						<td>${book.isbn_13}</td>
 						<td>${book.statusName}</td>
 						<td>
-							<c:set var="inputDisplay" value="${book.statusName}" /><!-- This same as your request attribute -->
+							<c:set var="inputDisplay" value="${book.statusName}" />
 							<c:choose>
 							    <c:when test="${book.statusName == 'In-Library'}">
 							    	<button type="button" class="btn btn-outline-info btn-sm" 
-							onclick="window.location.href='${pageContext.request.contextPath}/BookInfoController?action=RENT&id=${book.book_ID}'">Rent</button>
+									onclick="window.location.href='${pageContext.request.contextPath}/BookInfoController?action=RENT&id=${book.book_ID}'">Rent</button>
 							    </c:when>
 							    <c:otherwise>
 							        <button type="button" class="btn btn-outline-danger btn-sm"
 									onclick="window.location.href='${pageContext.request.contextPath}/BookInfoController?action=RENT&id=${book.book_ID}'" 
-									disabled="disabled">Rent</button>
+									disabled="disabled">Out</button>
 							    </c:otherwise>      
 							</c:choose>							
 						</td>

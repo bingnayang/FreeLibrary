@@ -241,7 +241,7 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 	}
 
 	@Override
-	public BookInfo searchById(int Id) {
+	public BookInfo searchBookById(int Id) {
 		// Create reference variables
 		BookInfo bookInfo = null;
 		try {
