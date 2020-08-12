@@ -39,7 +39,7 @@
 		<div class="card">
 			<h5 class="card-header">Customer Contact Information</h5>
 			<div class="card-body">
-				<form action="${pageContext.request.contextPath}/RentalController" method="POST">
+				<form action="${pageContext.request.contextPath}/RentalController?action=Rent" method="POST">
 					<div class="form-group">
 						<label for="customerName">Name</label> 
 						<input type="text" class="form-control" id="customerName" name="customerName" required="required">

@@ -45,9 +45,6 @@ public class BookInfoController extends HttpServlet {
 			case "RENT":
 				getSingleBook(request,response);
 				break;
-//			case "RETURN":
-//				getReturnBook(request,response);
-//				break;
 		}
         
 	}
@@ -77,10 +74,5 @@ public class BookInfoController extends HttpServlet {
 		// Forward the request and response objects
 		dispatcher.forward(request,response);	
 	}
-//	public void getReturnBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-//		int bookId = Integer.parseInt(request.getParameter("id"));
-//		System.out.println("Rental Id: "+bookId);
-//
-//	}
 
 }

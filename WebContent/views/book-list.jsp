@@ -11,7 +11,7 @@
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Free Library</title>
 </head>
-<body>
+<body class="bg-light">
 	<nav class="navbar mb-2" style="background-color: #1F3944;">
 		<a class="navbar-brand text-light" href="#"> <i class="fa fa-book"
 			aria-hidden="true"></i> Free Library
@@ -102,12 +102,10 @@
 						<td>${rent.outDate}</td>	
 						<td>${rent.customerName}</td>		
 						<td>
-						<form action="${pageContext.request.contextPath}/RentalController" method="POST">
-							<input class="form-control" name="rent_Id" value="${rent.rent_Id}">
+						<form action="${pageContext.request.contextPath}/RentalController?action=Return" method="POST">
+							<input type="hidden" class="form-control" name="rent_Id" value="${rent.rent_Id}">
 							<button type="submit" class="btn btn-outline-info btn-sm">Book Return</button>
 						</form>
-<%-- 							<button type="button" class="btn btn-outline-info btn-sm" 
-							onclick="window.location.href='${pageContext.request.contextPath}/RentalController?action=RETURN&id=${rent.rent_Id}'">Book Return</button> --%>
 						</td>									
 					</tr>
 				</c:forEach>

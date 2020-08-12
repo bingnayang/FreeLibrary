@@ -192,7 +192,7 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 		// Create reference variables
 		List<RentalInfo> list = null;
 		RentalInfo rentInfo = null;
-		String sql = "SELECT * FROM rentals_info";
+		String sql = "SELECT * FROM rentals_info WHERE returnDate IS NULL";
 		try {
 			list = new ArrayList<RentalInfo>();
 			// Get the database connection
@@ -223,7 +223,7 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 	@Override
 	public int getTotalRentOutBook() {
 		int total  = 0;
-		String sql = "SELECT COUNT(rentals_info.name) FROM rentals_info";
+		String sql = "SELECT COUNT(rentals_info.name) FROM rentals_info WHERE returnDate IS NULL";
 		try {
 			// Get the database connection
 			connection = DBConnectionUtil.openConnection();
@@ -232,7 +232,6 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 			// Execute the query
 			resultSet = statement.executeQuery(sql);
 			total = resultSet.getInt(1);
-//			System.out.println("SQL: "+sql);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
