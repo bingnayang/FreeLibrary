@@ -15,7 +15,6 @@ public class RentalDAOImplement implements RentalDAO{
 	Statement statement = null;
 	ResultSet resultSet = null;
 	PreparedStatement preparedStatement = null;
-	
 
 	@Override
 	public boolean searchCustomer(String name, String email) {
@@ -48,7 +47,6 @@ public class RentalDAOImplement implements RentalDAO{
 		try {
 			// Get the database connection
 			connection = DBConnectionUtil.openConnection();
-
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1,name);
 			preparedStatement.setString(2,email);
@@ -65,7 +63,6 @@ public class RentalDAOImplement implements RentalDAO{
 	@Override
 	public boolean updateStatus(int statusId,int bookId) {
 		String sql = "UPDATE books SET status_Id =? WHERE book_Id =?";
-
 		try {
 			// Get the database connection
 			connection = DBConnectionUtil.openConnection();
@@ -74,7 +71,6 @@ public class RentalDAOImplement implements RentalDAO{
 			preparedStatement.setInt(2,bookId);
 			preparedStatement.executeUpdate();
 			return true;
-
 		}catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Update Status error........");
@@ -119,6 +115,42 @@ public class RentalDAOImplement implements RentalDAO{
 			customerID = -1;
 		}
 		return customerID;
+	}
+	@Override
+	public boolean rentalUpdate(Rental rent) {
+		String sql = "UPDATE rentals SET returnDate =? WHERE rental_Id =?";
+		try {
+			// Get the database connection
+			connection = DBConnectionUtil.openConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1,rent.getReturnDate().toString());
+			preparedStatement.setInt(2,rent.getRent_Id());
+			preparedStatement.executeUpdate();
+			return true;
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Update Rental error........");
+			e.printStackTrace();
+		}
+		return false;	
+	}
+	@Override
+	public int getBookID(Rental rent) {
+		// Create reference variables
+		int bookID = 0;
+		String sql = "SELECT book_Id FROM rentals WHERE rentals.rental_Id = ?";
+		try {
+			connection = DBConnectionUtil.openConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1,rent.getRent_Id());
+			ResultSet resultSet = preparedStatement.executeQuery();
+			bookID = resultSet.getInt("book_Id");
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			bookID = -1;
+		}
+		return bookID;
 	}
 
 }

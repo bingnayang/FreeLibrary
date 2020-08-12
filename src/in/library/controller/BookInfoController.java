@@ -43,8 +43,11 @@ public class BookInfoController extends HttpServlet {
 				listBook(request,response);
 				break;
 			case "RENT":
-				getSingleRent(request,response);
+				getSingleBook(request,response);
 				break;
+//			case "RETURN":
+//				getReturnBook(request,response);
+//				break;
 		}
         
 	}
@@ -63,10 +66,9 @@ public class BookInfoController extends HttpServlet {
 		// Forward the request and response objects
 		dispatcher.forward(request,response);	
 	}
-	public void getSingleRent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	public void getSingleBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		int bookId = Integer.parseInt(request.getParameter("id"));
 		System.out.println("Book Id: "+bookId);
-		
 		BookInfo allBookList = bookInfoDAO.searchBookById(bookId);
 		// Add the book to request object
 		request.setAttribute("bookInfo",allBookList);
@@ -75,6 +77,10 @@ public class BookInfoController extends HttpServlet {
 		// Forward the request and response objects
 		dispatcher.forward(request,response);	
 	}
-
+//	public void getReturnBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+//		int bookId = Integer.parseInt(request.getParameter("id"));
+//		System.out.println("Rental Id: "+bookId);
+//
+//	}
 
 }

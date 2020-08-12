@@ -8,4 +8,6 @@ public interface RentalDAO {
 	boolean updateStatus(int statusId,int bookId);
 	boolean addRentBook(Rental rent);
 	int getCustomerID(String name, String email);
+	boolean rentalUpdate(Rental rent);
+	int getBookID(Rental rent);
 }

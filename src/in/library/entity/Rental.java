@@ -7,7 +7,7 @@ public class Rental {
 	private int book_Id;
 	private int customer_Id;
 	private LocalDate outDate;
-	private String returnDate;
+	private LocalDate returnDate;
 	public int getRent_Id() {
 		return rent_Id;
 	}
@@ -32,10 +32,10 @@ public class Rental {
 	public void setOutDate(LocalDate outDate) {
 		this.outDate = outDate;
 	}
-	public String getReturnDate() {
+	public LocalDate getReturnDate() {
 		return returnDate;
 	}
-	public void setReturnDate(String returnDate) {
+	public void setReturnDate(LocalDate returnDate) {
 		this.returnDate = returnDate;
 	}
 

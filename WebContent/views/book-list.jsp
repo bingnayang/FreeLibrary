@@ -101,9 +101,14 @@
 						<td>${rent.authorName}</td>
 						<td>${rent.outDate}</td>	
 						<td>${rent.customerName}</td>		
-						<td><a type="button" class="btn btn-outline-info btn-sm"
-							href="#" class="btn btn-primary"
-							onclick="window.location.href='views/rental.jsp'">Book Return</a></td>									
+						<td>
+						<form action="${pageContext.request.contextPath}/RentalController" method="POST">
+							<input class="form-control" name="rent_Id" value="${rent.rent_Id}">
+							<button type="submit" class="btn btn-outline-info btn-sm">Book Return</button>
+						</form>
+<%-- 							<button type="button" class="btn btn-outline-info btn-sm" 
+							onclick="window.location.href='${pageContext.request.contextPath}/RentalController?action=RETURN&id=${rent.rent_Id}'">Book Return</button> --%>
+						</td>									
 					</tr>
 				</c:forEach>
 			</table>

@@ -204,6 +204,7 @@ public class BookInfoDAOImplement implements BookInfoDAO {
 			// Process the resultSet
 			while(resultSet.next()) {
 				rentInfo = new RentalInfo();
+				rentInfo.setRent_Id(resultSet.getInt("rental_Id"));
 				rentInfo.setBookName(resultSet.getString("name"));
 				rentInfo.setAuthorName(resultSet.getString("authorName"));
 				rentInfo.setCustomerName(resultSet.getString("customerName"));
