@@ -48,15 +48,17 @@ public class RentalController extends HttpServlet {
 		System.out.println("Search for customer Id");
 		System.out.println("Customer Id: "+customerID);
 		
-		
+
 		Rental rent = new Rental();
 		rent.setBook_Id(bookID);
 		rent.setCustomer_Id(customerID);
 		rent.setOutDate(todayDate);
 		
-		rentalInfoDAO.addRentBook(rent);
-		
-		
+		if(rentalInfoDAO.addRentBook(rent)) {
+			rentalInfoDAO.updateStatus(2,bookID);
+		}else {
+			System.out.println("Rent Book fail");
+		}
 		
 		resp.sendRedirect("BookInfoController");
 	}

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
 
 import in.library.entity.Rental;
 import in.library.util.DBConnectionUtil;
@@ -35,6 +36,7 @@ public class RentalDAOImplement implements RentalDAO{
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("Search customer error........");
 			e.printStackTrace();
 		}
 		return false;	
@@ -55,13 +57,14 @@ public class RentalDAOImplement implements RentalDAO{
 
 		}catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("Add customer error........");
 			e.printStackTrace();
 		}
 		return false;	
 	}
 	@Override
 	public boolean updateStatus(int statusId,int bookId) {
-		String sql = "UPDATE books SET books.status_Id = ? WHERE books.book_Id = ?";
+		String sql = "UPDATE books SET status_Id =? WHERE book_Id =?";
 
 		try {
 			// Get the database connection
@@ -74,13 +77,27 @@ public class RentalDAOImplement implements RentalDAO{
 
 		}catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("Update Status error........");
 			e.printStackTrace();
 		}
 		return false;	
 	}
 	@Override
 	public boolean addRentBook(Rental rent) {
-		
+		String sql = "INSERT INTO rentals (book_id,customer_Id,rentOutDate) VALUES(?,?,?)";
+		try {
+			// Get the database connection
+			connection = DBConnectionUtil.openConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1,rent.getBook_Id());
+			preparedStatement.setInt(2,rent.getCustomer_Id());
+			preparedStatement.setString(3,rent.getOutDate().toString());
+			preparedStatement.executeUpdate();
+			return true;
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Add Rent Book error........");
+		}	
 		return false;
 		
 	}
@@ -88,8 +105,8 @@ public class RentalDAOImplement implements RentalDAO{
 	public int getCustomerID(String name, String email) {
 		// Create reference variables
 		int customerID = 0;
+		String sql = "SELECT customer_Id FROM customers WHERE customers.customerName = ? AND customers.email = ?";
 		try {
-			String sql = "SELECT customer_Id FROM customers WHERE customers.customerName = ? AND customers.email = ?";
 			connection = DBConnectionUtil.openConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1,name);
