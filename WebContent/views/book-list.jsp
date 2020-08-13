@@ -5,10 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet"
+	<link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet"
+	<link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 <title>Free Library</title>
 </head>
 <body class="bg-light">
@@ -38,7 +39,7 @@
 		<h4 class="text-center text-light" style="background-color: #1F3944; padding: 5px;">All Book in Library Database</h4>
 		<!-- 	Table that display all book in database-->
 		<div class="table-responsive">
-			<table class="table table-striped">
+			<table class="table table-striped" id="datatable">
 				<thead class="text-light" style="background-color: #1F3944;">
 					<tr>
 						<th>Book Name</th>
@@ -125,5 +126,13 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
 		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js">
+	</script>
 </body>
+<script type="text/javascript">
+	$(document).ready( function () {
+    $('#datatable').DataTable();
+} );
+</script>
 </html>
