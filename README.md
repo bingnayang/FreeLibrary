@@ -9,3 +9,4 @@ A simple web app using JSP and servlets with MVC design
 * MVC Design
 * Bootstrap
 * Apache Tomcat
+* DataTables plug-in
